@@ -1,5 +1,3 @@
-Here's the content for the `README.md` in English:
-
 ---
 
 # Dev Today App
@@ -65,5 +63,3 @@ Ensure that ports **`3080`** and **`5173`** are not being used before starting t
 If you encounter any issues or have questions, feel free to open an [issue](#) or reach out to the developers.
 
 ---
-
-Save this content in the `README.md` file and share it! 😊
