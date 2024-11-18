@@ -24,39 +24,47 @@ export function CountryInfo() {
         <div>
             {countryDetails ? (
                 <div>
-                    <h2 className="text-2xl font-semibold mb-4">Border Countries</h2>
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full my-8 table-auto border-collapse border border-gray-200 rounded-lg">
-                            <thead>
-                                <tr className="bg-gray-100 text-center">
-                                    <th className="px-4 py-2 border border-gray-200">Country</th>
-                                    <th className="px-4 py-2 border border-gray-200">Code</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {countryDetails.borderCountries.map((borderCountry, index) => (
-                                    <tr
-                                        key={index}
-                                        className="odd:bg-white even:bg-gray-50 hover:bg-gray-100"
-                                    >
-                                        <td className="px-4 py-2 border border-gray-200">
-                                            <NavLink
-                                                to={`/${borderCountry.countryCode}`}
-                                                className="text-blue-500 hover:underline"
+                    <h1>{countryDetails.country}</h1>
+                    <img className="max-w-40 mx-auto my-8" src={countryDetails.flagUrl} alt={`${countryDetails.country} flag`} />
+                    {countryDetails.borderCountries.length ? (
+                        <div>
+                            <h2 className="text-2xl font-semibold mb-4">Border Countries</h2>
+                            <div className="overflow-x-auto">
+                                <table className="min-w-full my-8 table-auto border-collapse border border-gray-200 rounded-lg">
+                                    <thead>
+                                        <tr className="bg-gray-100 text-center">
+                                            <th className="px-4 py-2 border border-gray-200">Country</th>
+                                            <th className="px-4 py-2 border border-gray-200">Code</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {countryDetails.borderCountries.map((borderCountry, index) => (
+                                            <tr
+                                            key={index}
+                                            className="odd:bg-white even:bg-gray-50 hover:bg-gray-100"
                                             >
-                                                {borderCountry.commonName}
-                                            </NavLink>
-                                        </td>
-                                        <td className="px-4 py-2 border border-gray-200">
-                                            {borderCountry.countryCode}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                                <td className="px-4 py-2 border border-gray-200">
+                                                    <NavLink
+                                                        to={`/${borderCountry.countryCode}`}
+                                                        className="text-blue-500 hover:underline"
+                                                        >
+                                                        {borderCountry.commonName}
+                                                    </NavLink>
+                                                </td>
+                                                <td className="px-4 py-2 border border-gray-200">
+                                                    {borderCountry.countryCode}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        ) : (
+                            <></>
+                        )}
                         <Chart countries={chartCountries} />
                     </div>
-                </div>
             ) : (
                 <div>Loading...</div>
             )}
