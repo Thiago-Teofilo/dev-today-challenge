@@ -1,5 +1,3 @@
-Here's the content for the `README.md` in English:
-
 ---
 
 # Dev Today App
